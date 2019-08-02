@@ -1,3 +1,4 @@
-controllers:
-    resource: ../../src/Controller/
-    type: annotation
+# Api Entry Point
+api_entrypoint:
+    path:     /
+    controller: App\Action\EntryPoint
