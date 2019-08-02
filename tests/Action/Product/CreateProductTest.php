@@ -126,4 +126,15 @@ class CreateProductTest extends WebTestCase
 
         $this->assertNotEmpty($finishedData['errors']['children']['name']);
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    protected function tearDown()
+    {
+        parent::tearDown();
+
+        $this->entityManager->close();
+        $this->entityManager = null; // avoid memory leaks
+    }
 }
