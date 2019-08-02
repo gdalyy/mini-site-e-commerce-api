@@ -17,8 +17,12 @@
     </php>
 
     <testsuites>
-        <testsuite name="Project Test Suite">
-            <directory>tests</directory>
+        <testsuite name="Mini E-commerce Site Test Suite">
+            <file>tests/Action/EntryPointTest.php</file>
+            <file>tests/Action/Category/CreateCategoryTest.php</file>
+            <file>tests/Action/Category/CategoriesListTest.php</file>
+            <file>tests/Action/Product/CreateProductTest.php</file>
+            <file>tests/Action/Category/CategoryProductsListTest.php</file>
         </testsuite>
     </testsuites>
 

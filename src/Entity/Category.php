@@ -67,4 +67,9 @@ class Category
 
         return $this;
     }
+
+    public function getProducts()
+    {
+        return $this->products;
+    }
 }
