@@ -1,0 +1,10 @@
+nelmio_api_doc:
+    areas:
+        path_patterns:
+            - ^/api/v1(?!/doc(.json)??$)
+    documentation:
+        schemes: [http, https]
+        info:
+            title: Mini E-commerce Site REST API
+            description: This is the documentation for the fully-REST API for The Mini E-commerce Site
+            version: 0.0.1

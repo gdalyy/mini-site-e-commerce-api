@@ -1,0 +1,16 @@
+App\Entity\Product:
+
+    accessor_order: custom
+    custom_accessor_order: [id, name, price, quantity, categories]
+
+    properties:
+        id:
+            groups: ['new', 'list']
+        name:
+            groups: ['new', 'list']
+        price:
+            groups: ['new', 'list']
+        quantity:
+            groups: ['new', 'list']
+        categories:
+            groups: ['new', 'list']

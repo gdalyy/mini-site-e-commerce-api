@@ -1,0 +1,6 @@
+App\Entity\Price:
+    properties:
+        amount:
+            groups: ['new', 'list']
+        currency:
+            groups: ['new', 'list']

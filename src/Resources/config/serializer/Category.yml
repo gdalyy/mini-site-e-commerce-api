@@ -1,0 +1,6 @@
+App\Entity\Category:
+    properties:
+        id:
+            groups: ['new', 'list']
+        name:
+            groups: ['new', 'list']

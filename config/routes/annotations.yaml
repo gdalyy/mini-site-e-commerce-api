@@ -1,0 +1,16 @@
+# Api Entry Point
+api_entrypoint:
+    path:     /
+    controller: App\Action\EntryPoint
+
+# Categories Endpoints
+categories:
+    resource: ./actions/categories.yaml
+    name_prefix: api_
+    prefix: api/v1/categories
+
+# Products Endpoints
+products:
+    resource: ./actions/products.yaml
+    name_prefix: api_
+    prefix: api/v1/products
