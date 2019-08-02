@@ -1,0 +1,3 @@
+categories:
+    resource: ../../src/Action/Category
+    type: annotation

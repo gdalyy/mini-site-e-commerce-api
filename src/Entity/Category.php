@@ -6,6 +6,7 @@ use App\Entity\Traits\SoftDeleteableTrait;
 use App\Entity\Traits\TimestampableTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 use Gedmo\Mapping\Annotation as Gedmo;
 
@@ -18,6 +19,8 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * @ORM\Entity(repositoryClass="App\Repository\CategoryRepository")
  *
  * @Gedmo\SoftDeleteable(fieldName="deletedAt", timeAware=false)
+ *
+ * @UniqueEntity(fields={"name"}, message="This category already exists.")
  */
 class Category
 {
