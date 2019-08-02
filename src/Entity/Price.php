@@ -11,6 +11,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @author Daly Ghaith <daly.ghaith@gmail.com>
  *
  * @ORM\Table(name="price")
+ * @ORM\Entity()
  */
 class Price
 {
@@ -23,15 +24,11 @@ class Price
 
     /**
      * @ORM\Column(type="float")
-     *
-     * @Assert\NotBlank()
      */
     private $amount;
 
     /**
      * @ORM\Column(type="string", length=3)
-     *
-     * @Assert\NotBlank()
      */
     private $currency;
 

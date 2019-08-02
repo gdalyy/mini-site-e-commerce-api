@@ -1,4 +1,4 @@
 App\Entity\Category:
     properties:
         name:
-            groups: ['list']
+            groups: ['new', 'list']

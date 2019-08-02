@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Action\Category;
+namespace App\Action\Product;
 
 use App\Action\BaseAction;
-use App\Entity\Category;
-use App\Form\CategoryType;
+use App\Entity\Product;
+use App\Form\ProductType;
 use Doctrine\ORM\EntityManagerInterface;
 use FOS\RestBundle\View\View;
 use Nelmio\ApiDocBundle\Annotation\Model;
@@ -15,13 +15,13 @@ use FOS\RestBundle\Controller\Annotations as Rest;
 use Swagger\Annotations as SWG;
 
 /**
- * CreateCategory Controller
+ * CreateProduct Controller
  *
- * This class is used to add a new category resource
+ * This class is used to add a new product resource
  *
  * @author Daly Ghaith <daly.ghaith@gmail.com>
  */
-class CreateCategory extends BaseAction
+class CreateProduct extends BaseAction
 {
     /**
      * @var EntityManagerInterface
@@ -34,44 +34,47 @@ class CreateCategory extends BaseAction
     }
 
     /**
-     * Post category resource
+     * Post product resource
      *
-     * Create a new category for products
+     * Create a new product
      *
      * @Rest\Post("/")
      *
      * @SWG\Parameter(
-     *     name="category",
+     *     name="product",
      *     in="body",
      *     required=true,
-     *     @Model(type=CategoryType::class)
+     *     @Model(type=ProductType::class)
      * )
      *
-     * @SWG\Response(response=201, description="Category resource post success")
+     * @SWG\Response(response=201, description="Product resource post success")
      * @SWG\Response(response=400, description="Validation Failed")
      *
-     * @SWG\Tag(name="Categories")
+     * @SWG\Tag(name="Products")
      *
-     * @Rest\View()
+     * @Rest\View(serializerGroups={"new"})
      * @param Request $request
      * @return View|FormInterface
      */
     public function __invoke(Request $request)
     {
-        $category = new Category();
+        $product = new Product();
 
-        $form = $this->createForm(CategoryType::class, $category);
+        $form = $this->createForm(ProductType::class, $product);
         $form->submit($request->request->all());
         if (!$form->isValid()) {
             return $form;
         }
 
-        $this->em->persist($category);
+        $this->em->persist($product);
         $this->em->flush();
 
         return $this->jsonResponse(
             Response::HTTP_CREATED,
-            'Category resource post success'
+            'Product resource post success',
+            [
+                'product' => $product
+            ]
         );
     }
 }

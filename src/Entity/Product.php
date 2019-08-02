@@ -6,6 +6,7 @@ use App\Entity\Traits\SoftDeleteableTrait;
 use App\Entity\Traits\TimestampableTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
 use Gedmo\Mapping\Annotation as Gedmo;
 
@@ -17,6 +18,8 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * @ORM\Table(name="product")
  * @ORM\Entity(repositoryClass="App\Repository\ProductRepository")
  * @Gedmo\SoftDeleteable(fieldName="deletedAt", timeAware=false)
+ *
+ * @UniqueEntity(fields={"name"}, message="This product already exists.")
  */
 class Product
 {
@@ -59,6 +62,7 @@ class Product
 
     public function __construct()
     {
+        $this->price = new Price();
         $this->categories = new ArrayCollection();
     }
 
