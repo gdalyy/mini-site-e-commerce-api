@@ -52,7 +52,7 @@ class CreateCategory extends BaseAction
      *
      * @SWG\Tag(name="Categories")
      *
-     * @Rest\View()
+     * @Rest\View(serializerGroups={"new"})
      * @param Request $request
      * @return View|FormInterface
      */
@@ -71,7 +71,10 @@ class CreateCategory extends BaseAction
 
         return $this->jsonResponse(
             Response::HTTP_CREATED,
-            'Category resource post success'
+            'Category resource post success',
+            [
+                'category' => $category
+            ]
         );
     }
 }
